@@ -1,14 +1,18 @@
 package com.dbrsn.sjsrn
 
+import com.github.ghik.silencer.silent
+
 import scala.scalajs.js
 
 @js.native
+@silent
 trait ReactEvent[T <: js.Object] extends js.Object {
 
   val nativeEvent: T = js.native
 }
 
 @js.native
+@silent
 trait TextInputEvent extends js.Object {
 
   val text: String = js.native
@@ -17,6 +21,7 @@ trait TextInputEvent extends js.Object {
 }
 
 @js.native
+@silent
 trait TextInputContentSize extends js.Object {
 
   val width: Double = js.native
@@ -25,6 +30,7 @@ trait TextInputContentSize extends js.Object {
 }
 
 @js.native
+@silent
 trait TextContentOffset extends js.Object {
 
   val x: Double = js.native
@@ -36,6 +42,7 @@ trait TextContentOffset extends js.Object {
 trait ImageEvent extends js.Object {}
 
 @js.native
+@silent
 trait WebViewEvent extends js.Object {
   val data: String = js.native
 }

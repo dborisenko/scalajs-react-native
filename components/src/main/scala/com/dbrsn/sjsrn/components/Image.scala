@@ -1,8 +1,9 @@
 package com.dbrsn.sjsrn.components
 
-import com.dbrsn.sjsrn.{ImageEvent, ReactEvent}
-import japgolly.scalajs.react.component.Js.{RawMounted, UnmountedWithRawType}
-import japgolly.scalajs.react.{Children, CtorType, JsComponent}
+import com.dbrsn.sjsrn.{ ImageEvent, ReactEvent }
+import com.github.ghik.silencer.silent
+import japgolly.scalajs.react.component.Js.{ RawMounted, UnmountedWithRawType }
+import japgolly.scalajs.react.{ Children, CtorType, JsComponent }
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -10,6 +11,7 @@ import scala.scalajs.js.annotation.JSImport
 object Image {
 
   @js.native
+  @silent
   @JSImport("react-native", "Image")
   object RawComponent extends js.Object {
     def getSize(uri: String, success: (Double, Double) => Unit, failure: js.Dynamic => Unit): Unit = js.native
@@ -72,6 +74,7 @@ object Image {
     ).asInstanceOf[Props]
   }
 
+  @js.native
   trait Source extends js.Object {
     var uri: String
     var isStatic: js.UndefOr[Boolean] = js.undefined
@@ -84,7 +87,7 @@ object Image {
       uri: String,
       isStatic: js.UndefOr[Boolean] = js.undefined,
       scale: js.UndefOr[Double] = js.undefined,
-      headers: js.UndefOr[js.Dictionary[String]] = js.undefined,
+      headers: js.UndefOr[js.Dictionary[String]] = js.undefined
     ): Source = js.Dynamic.literal(
       uri = uri,
       isStatic = isStatic,

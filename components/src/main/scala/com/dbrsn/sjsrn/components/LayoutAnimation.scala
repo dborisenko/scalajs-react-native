@@ -1,9 +1,12 @@
 package com.dbrsn.sjsrn.components
 
+import com.github.ghik.silencer.silent
+
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
 @js.native
+@silent
 trait LayoutAnimation extends js.Object {
 
   def configureNext(config: LayoutConfig, onAnimationDidEnd: js.Function): Unit = js.native
@@ -29,6 +32,7 @@ object LayoutAnimation extends LayoutAnimation
 trait LayoutType extends js.Object
 
 @js.native
+@silent
 trait LayoutTypes extends js.Object {
   val spring: LayoutType = js.native
   val linear: LayoutType = js.native
@@ -42,6 +46,7 @@ trait LayoutTypes extends js.Object {
 trait LayoutProperty extends js.Object
 
 @js.native
+@silent
 trait LayoutProperties extends js.Object {
 
   val opacity: LayoutProperty = js.native
@@ -49,6 +54,7 @@ trait LayoutProperties extends js.Object {
 }
 
 @js.native
+@silent
 trait LayoutAnim extends js.Object {
   val duration: js.UndefOr[Double] = js.native
   val delay: js.UndefOr[Double] = js.native
@@ -59,6 +65,7 @@ trait LayoutAnim extends js.Object {
 }
 
 @js.native
+@silent
 trait LayoutConfig extends js.Object {
   val duration: js.UndefOr[Double] = js.native
   val create: js.UndefOr[LayoutAnim] = js.native
@@ -67,6 +74,7 @@ trait LayoutConfig extends js.Object {
 }
 
 @js.native
+@silent
 trait LayoutPresets extends js.Object {
   val easeInEaseOut: LayoutConfig = js.native
   val linear: LayoutConfig = js.native
@@ -74,6 +82,7 @@ trait LayoutPresets extends js.Object {
 }
 
 @js.native
+@silent
 trait Layout extends js.Object {
   val x: Double = js.native
   val y: Double = js.native
@@ -82,11 +91,13 @@ trait Layout extends js.Object {
 }
 
 @js.native
+@silent
 trait LayoutEvent extends js.Object {
   val nativeEvent: LayoutNativeEvent = js.native
 }
 
 @js.native
+@silent
 trait LayoutNativeEvent extends js.Object {
   val layout: Layout = js.native
 }

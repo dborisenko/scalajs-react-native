@@ -54,8 +54,16 @@ inThisBuild(
   )
 )
 
+lazy val silencerSettings = Seq(
+  libraryDependencies ++= Seq(
+    compilerPlugin(Dependencies.`silencer-plugin`),
+    Dependencies.silencer
+  )
+)
+
 lazy val components = (project in file("components"))
   .enablePlugins(ScalaJSPlugin)
+  .settings(silencerSettings)
   .settings(
     libraryDependencies ++= Seq(
       Dependencies.`scalajs-dom`.value,

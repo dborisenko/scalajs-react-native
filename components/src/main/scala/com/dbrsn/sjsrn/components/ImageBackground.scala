@@ -1,5 +1,6 @@
 package com.dbrsn.sjsrn.components
 
+import com.github.ghik.silencer.silent
 import japgolly.scalajs.react.component.Js.{ RawMounted, UnmountedWithRawType }
 import japgolly.scalajs.react.{ Children, CtorType, JsComponent }
 
@@ -9,6 +10,7 @@ import scala.scalajs.js.annotation.JSImport
 object ImageBackground {
 
   @js.native
+  @silent
   @JSImport("react-native", "ImageBackground")
   object RawComponent extends js.Object {
     def getSize(uri: String, success: (Double, Double) => Unit, failure: js.Dynamic => Unit): Unit = js.native
