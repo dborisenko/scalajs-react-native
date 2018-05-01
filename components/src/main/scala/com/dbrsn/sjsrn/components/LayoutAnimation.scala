@@ -1,4 +1,4 @@
-package sri.universal.apis
+package com.dbrsn.sjsrn.components
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
@@ -6,7 +6,7 @@ import scala.scalajs.js.annotation.JSImport
 @js.native
 trait LayoutAnimation extends js.Object {
 
-  def configureNext(config: LayoutConfig, onAnimationDidEnd: js.Function = ???): Unit = js.native
+  def configureNext(config: LayoutConfig, onAnimationDidEnd: js.Function): Unit = js.native
 
   def create(duration: Double, `type`: LayoutType, creationProps: LayoutProperty): LayoutConfig = js.native
 
@@ -22,7 +22,7 @@ trait LayoutAnimation extends js.Object {
 }
 
 @js.native
-@JSImport("react-native","LayoutAnimation")
+@JSImport("react-native", "LayoutAnimation")
 object LayoutAnimation extends LayoutAnimation
 
 @js.native
@@ -75,18 +75,18 @@ trait LayoutPresets extends js.Object {
 
 @js.native
 trait Layout extends js.Object {
-  val x : Double = js.native
-  val y : Double = js.native
-  val width : Double = js.native
-  val height : Double = js.native
+  val x: Double = js.native
+  val y: Double = js.native
+  val width: Double = js.native
+  val height: Double = js.native
 }
 
 @js.native
 trait LayoutEvent extends js.Object {
-  val nativeEvent : LayoutNativeEvent = js.native
+  val nativeEvent: LayoutNativeEvent = js.native
 }
 
 @js.native
 trait LayoutNativeEvent extends js.Object {
-  val layout : Layout = js.native
+  val layout: Layout = js.native
 }

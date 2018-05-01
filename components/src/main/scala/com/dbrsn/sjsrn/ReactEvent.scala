@@ -1,4 +1,4 @@
-package sri.universal
+package com.dbrsn.sjsrn
 
 import scala.scalajs.js
 
@@ -39,5 +39,6 @@ trait ImageEvent extends js.Object {}
 trait WebViewEvent extends js.Object {
   val data: String = js.native
 }
+
 @js.native
 trait SyntheticEvent extends js.Object {}
