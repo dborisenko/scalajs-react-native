@@ -9,8 +9,8 @@ import scala.scalajs.js.annotation.JSImport
 
 object ImageBackground {
 
-  @js.native
   @silent
+  @js.native
   @JSImport("react-native", "ImageBackground")
   object RawComponent extends js.Object {
     def getSize(uri: String, success: (Double, Double) => Unit, failure: js.Dynamic => Unit): Unit = js.native

@@ -10,8 +10,8 @@ import scala.scalajs.js.annotation.JSImport
 
 object Image {
 
-  @js.native
   @silent
+  @js.native
   @JSImport("react-native", "Image")
   object RawComponent extends js.Object {
     def getSize(uri: String, success: (Double, Double) => Unit, failure: js.Dynamic => Unit): Unit = js.native

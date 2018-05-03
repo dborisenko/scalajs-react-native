@@ -5,8 +5,8 @@ import com.github.ghik.silencer.silent
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-@js.native
 @silent
+@js.native
 trait LayoutAnimation extends js.Object {
 
   def configureNext(config: LayoutConfig, onAnimationDidEnd: js.Function): Unit = js.native
@@ -31,8 +31,8 @@ object LayoutAnimation extends LayoutAnimation
 @js.native
 trait LayoutType extends js.Object
 
-@js.native
 @silent
+@js.native
 trait LayoutTypes extends js.Object {
   val spring: LayoutType = js.native
   val linear: LayoutType = js.native
@@ -45,16 +45,16 @@ trait LayoutTypes extends js.Object {
 @js.native
 trait LayoutProperty extends js.Object
 
-@js.native
 @silent
+@js.native
 trait LayoutProperties extends js.Object {
 
   val opacity: LayoutProperty = js.native
   val scaleXY: LayoutProperty = js.native
 }
 
-@js.native
 @silent
+@js.native
 trait LayoutAnim extends js.Object {
   val duration: js.UndefOr[Double] = js.native
   val delay: js.UndefOr[Double] = js.native
@@ -64,8 +64,8 @@ trait LayoutAnim extends js.Object {
   val property: js.UndefOr[LayoutProperty] = js.native
 }
 
-@js.native
 @silent
+@js.native
 trait LayoutConfig extends js.Object {
   val duration: js.UndefOr[Double] = js.native
   val create: js.UndefOr[LayoutAnim] = js.native
@@ -73,16 +73,16 @@ trait LayoutConfig extends js.Object {
   val delete: js.UndefOr[LayoutAnim] = js.native
 }
 
-@js.native
 @silent
+@js.native
 trait LayoutPresets extends js.Object {
   val easeInEaseOut: LayoutConfig = js.native
   val linear: LayoutConfig = js.native
   val spring: LayoutConfig = js.native
 }
 
-@js.native
 @silent
+@js.native
 trait Layout extends js.Object {
   val x: Double = js.native
   val y: Double = js.native
@@ -90,14 +90,14 @@ trait Layout extends js.Object {
   val height: Double = js.native
 }
 
-@js.native
 @silent
+@js.native
 trait LayoutEvent extends js.Object {
   val nativeEvent: LayoutNativeEvent = js.native
 }
 
-@js.native
 @silent
+@js.native
 trait LayoutNativeEvent extends js.Object {
   val layout: Layout = js.native
 }

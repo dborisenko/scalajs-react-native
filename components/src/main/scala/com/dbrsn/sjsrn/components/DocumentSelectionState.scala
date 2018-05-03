@@ -1,9 +1,11 @@
-package sri.universal.components
+package com.dbrsn.sjsrn.components
+
+import com.github.ghik.silencer.silent
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-
+@silent
 @js.native
 @JSImport("react-native", "DocumentSelectionState")
 class DocumentSelectionState extends js.Object {
