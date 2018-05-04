@@ -11,7 +11,7 @@ object Alert {
   @silent
   @js.native
   @JSImport("react-native", "Alert")
-  object RawComponent extends js.Object {
+  object RawAlert extends js.Object {
     def alert(
       title: String, message: String, buttons: js.Array[Button], options: Options, `type`: Type = Type.DEFAULT
     ): Unit = js.native
@@ -80,5 +80,5 @@ object Alert {
   @inline
   def apply(
     title: String, message: String, buttons: js.Array[Button], options: Options, `type`: Type = Type.DEFAULT
-  ): Unit = RawComponent.alert(title, message, buttons, options, `type`)
+  ): Unit = RawAlert.alert(title, message, buttons, options, `type`)
 }
