@@ -1,10 +1,14 @@
-package sri.universal.apis
+package com.dbrsn.sjsrn.api
+
+import com.github.ghik.silencer.silent
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
+@silent
 @js.native
-trait AppState extends js.Object {
+@JSImport("react-native", "AppState")
+object AppState extends js.Object {
 
   def addEventListener(tpe: String, handler: js.Function1[String, _]): Unit = js.native
 
@@ -12,7 +16,3 @@ trait AppState extends js.Object {
 
   def currentState: js.UndefOr[String] = js.native
 }
-
-@js.native
-@JSImport("react-native","AppState")
-object AppState extends AppState
