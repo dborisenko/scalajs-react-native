@@ -1,68 +1,49 @@
-package com.dbrsn.sjsrn.components
+package com.dbrsn.sjsrn.component
 
-import com.dbrsn.sjsrn.components.AnimatedImage.RawComponent
-import com.github.ghik.silencer.silent
 import japgolly.scalajs.react.component.Js.{ RawMounted, UnmountedWithRawType }
 import japgolly.scalajs.react.{ Children, CtorType, JsComponent }
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-@js.native
-trait ScreenRect extends js.Object {
-  var screenX: js.UndefOr[Double] = js.undefined
-  var screenY: js.UndefOr[Double] = js.undefined
-  var width: js.UndefOr[Double] = js.undefined
-  var height: js.UndefOr[Double] = js.undefined
-}
-
-@js.native
-trait KeyboardChangeEvent extends js.Object {
-  var startCoordinates: js.UndefOr[ScreenRect] = js.undefined
-
-  var endCoordinates: ScreenRect
-
-  var duration: js.UndefOr[Double] = js.undefined
-
-  var easing: js.UndefOr[String] = js.undefined
-}
-
-object KeyboardAvoidingView {
+object Slider {
 
   @js.native
-  trait Behaviour extends js.Object
-
-  object Behaviour {
-    @inline def HEIGHT: Behaviour = "height".asInstanceOf[Behaviour]
-
-    @inline def POSITION: Behaviour = "position".asInstanceOf[Behaviour]
-
-    @inline def PADDING: Behaviour = "padding".asInstanceOf[Behaviour]
-  }
-
-  @silent
-  @js.native
-  @JSImport("react-native", "KeyboardAvoidingView")
-  object KeyboardAvoidingViewComponent extends js.Object {
-    def relativeKeyboardHeight(keyboardFrame: ScreenRect): Double = js.native
-
-    def onKeyboardChange(event: KeyboardChangeEvent): Unit = js.native
-
-    def onLayout(event: LayoutEvent): Unit = js.native
-  }
+  @JSImport("react-native", "Slider")
+  object RawComponent extends js.Object
 
   @js.native
   trait Props extends View.Props {
-    val behavior: js.UndefOr[Behaviour] = js.undefined
-    val contentContainerStyle: js.UndefOr[js.Any] = js.undefined
-    val keyboardVerticalOffset: js.UndefOr[Double] = js.undefined
+    val minimumTrackTintColor: js.UndefOr[String] = js.undefined
+    val minimumValue: js.UndefOr[Double] = js.undefined
+    val onSlidingComplete: js.UndefOr[js.Function1[Double, _]] = js.undefined
+    val maximumTrackTintColor: js.UndefOr[String] = js.undefined
+    val thumbImage: js.UndefOr[Image.Source] = js.undefined
+    val trackImage: js.UndefOr[Image.Source] = js.undefined
+    val minimumTrackImage: js.UndefOr[Image.Source] = js.undefined
+    val maximumTrackImage: js.UndefOr[Image.Source] = js.undefined
+    val onValueChange: js.UndefOr[js.Function1[Double, Unit]] = js.undefined
+    val value: js.UndefOr[Double] = js.undefined
+    val step: js.UndefOr[Double] = js.undefined
+    val disabled: js.UndefOr[Boolean] = js.undefined
+    val maximumValue: js.UndefOr[Double] = js.undefined
   }
 
   object Props {
     def apply(
-      behavior: js.UndefOr[Behaviour] = js.undefined,
-      contentContainerStyle: js.UndefOr[js.Any] = js.undefined,
-      keyboardVerticalOffset: js.UndefOr[Double] = js.undefined,
+      minimumTrackTintColor: js.UndefOr[String] = js.undefined,
+      minimumValue: js.UndefOr[Double] = js.undefined,
+      onSlidingComplete: js.UndefOr[js.Function1[Double, _]] = js.undefined,
+      maximumTrackTintColor: js.UndefOr[String] = js.undefined,
+      thumbImage: js.UndefOr[Image.Source] = js.undefined,
+      trackImage: js.UndefOr[Image.Source] = js.undefined,
+      minimumTrackImage: js.UndefOr[Image.Source] = js.undefined,
+      maximumTrackImage: js.UndefOr[Image.Source] = js.undefined,
+      onValueChange: js.UndefOr[js.Function1[Double, Unit]] = js.undefined,
+      value: js.UndefOr[Double] = js.undefined,
+      step: js.UndefOr[Double] = js.undefined,
+      disabled: js.UndefOr[Boolean] = js.undefined,
+      maximumValue: js.UndefOr[Double] = js.undefined,
       onStartShouldSetResponder: js.UndefOr[js.Function] = js.undefined,
       onMoveShouldSetResponder: js.UndefOr[js.Function] = js.undefined,
       onStartShouldSetResponderCapture: js.UndefOr[js.Function] = js.undefined,
@@ -93,9 +74,19 @@ object KeyboardAvoidingView {
       importantForAccessibility: js.UndefOr[ImportantForAccessibility] = js.undefined,
       accessible: js.UndefOr[Boolean] = js.undefined
     ): Props = js.Dynamic.literal(
-      behavior = behavior,
-      contentContainerStyle = contentContainerStyle,
-      keyboardVerticalOffset = keyboardVerticalOffset,
+      minimumTrackTintColor = minimumTrackTintColor,
+      minimumValue = minimumValue,
+      onSlidingComplete = onSlidingComplete,
+      maximumTrackTintColor = maximumTrackTintColor,
+      thumbImage = thumbImage,
+      trackImage = trackImage,
+      minimumTrackImage = minimumTrackImage,
+      maximumTrackImage = maximumTrackImage,
+      onValueChange = onValueChange,
+      value = value,
+      step = step,
+      disabled = disabled,
+      maximumValue = maximumValue,
       onStartShouldSetResponder = onStartShouldSetResponder,
       onMoveShouldSetResponder = onMoveShouldSetResponder,
       onStartShouldSetResponderCapture = onStartShouldSetResponderCapture,

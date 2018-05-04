@@ -1,4 +1,4 @@
-package com.dbrsn.sjsrn.components
+package com.dbrsn.sjsrn.component
 
 import japgolly.scalajs.react.component.Js.{ RawMounted, UnmountedWithRawType }
 import japgolly.scalajs.react.{ Children, CtorType, JsComponent }
@@ -6,44 +6,30 @@ import japgolly.scalajs.react.{ Children, CtorType, JsComponent }
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-object Slider {
+object Switch {
 
   @js.native
-  @JSImport("react-native", "Slider")
+  @JSImport("react-native", "Switch")
   object RawComponent extends js.Object
 
   @js.native
   trait Props extends View.Props {
-    val minimumTrackTintColor: js.UndefOr[String] = js.undefined
-    val minimumValue: js.UndefOr[Double] = js.undefined
-    val onSlidingComplete: js.UndefOr[js.Function1[Double, _]] = js.undefined
-    val maximumTrackTintColor: js.UndefOr[String] = js.undefined
-    val thumbImage: js.UndefOr[Image.Source] = js.undefined
-    val trackImage: js.UndefOr[Image.Source] = js.undefined
-    val minimumTrackImage: js.UndefOr[Image.Source] = js.undefined
-    val maximumTrackImage: js.UndefOr[Image.Source] = js.undefined
-    val onValueChange: js.UndefOr[js.Function1[Double, Unit]] = js.undefined
-    val value: js.UndefOr[Double] = js.undefined
-    val step: js.UndefOr[Double] = js.undefined
+    val value: js.UndefOr[Boolean] = js.undefined
     val disabled: js.UndefOr[Boolean] = js.undefined
-    val maximumValue: js.UndefOr[Double] = js.undefined
+    val onValueChange: js.UndefOr[js.Function1[Boolean, _]] = js.undefined
+    val tintColor: js.UndefOr[String] = js.undefined
+    val onTintColor: js.UndefOr[String] = js.undefined
+    val thumbTintColor: js.UndefOr[String] = js.undefined
   }
 
   object Props {
     def apply(
-      minimumTrackTintColor: js.UndefOr[String] = js.undefined,
-      minimumValue: js.UndefOr[Double] = js.undefined,
-      onSlidingComplete: js.UndefOr[js.Function1[Double, _]] = js.undefined,
-      maximumTrackTintColor: js.UndefOr[String] = js.undefined,
-      thumbImage: js.UndefOr[Image.Source] = js.undefined,
-      trackImage: js.UndefOr[Image.Source] = js.undefined,
-      minimumTrackImage: js.UndefOr[Image.Source] = js.undefined,
-      maximumTrackImage: js.UndefOr[Image.Source] = js.undefined,
-      onValueChange: js.UndefOr[js.Function1[Double, Unit]] = js.undefined,
-      value: js.UndefOr[Double] = js.undefined,
-      step: js.UndefOr[Double] = js.undefined,
+      value: js.UndefOr[Boolean] = js.undefined,
       disabled: js.UndefOr[Boolean] = js.undefined,
-      maximumValue: js.UndefOr[Double] = js.undefined,
+      onValueChange: js.UndefOr[js.Function1[Boolean, _]] = js.undefined,
+      tintColor: js.UndefOr[String] = js.undefined,
+      onTintColor: js.UndefOr[String] = js.undefined,
+      thumbTintColor: js.UndefOr[String] = js.undefined,
       onStartShouldSetResponder: js.UndefOr[js.Function] = js.undefined,
       onMoveShouldSetResponder: js.UndefOr[js.Function] = js.undefined,
       onStartShouldSetResponderCapture: js.UndefOr[js.Function] = js.undefined,
@@ -74,19 +60,12 @@ object Slider {
       importantForAccessibility: js.UndefOr[ImportantForAccessibility] = js.undefined,
       accessible: js.UndefOr[Boolean] = js.undefined
     ): Props = js.Dynamic.literal(
-      minimumTrackTintColor = minimumTrackTintColor,
-      minimumValue = minimumValue,
-      onSlidingComplete = onSlidingComplete,
-      maximumTrackTintColor = maximumTrackTintColor,
-      thumbImage = thumbImage,
-      trackImage = trackImage,
-      minimumTrackImage = minimumTrackImage,
-      maximumTrackImage = maximumTrackImage,
-      onValueChange = onValueChange,
       value = value,
-      step = step,
       disabled = disabled,
-      maximumValue = maximumValue,
+      onValueChange = onValueChange,
+      tintColor = tintColor,
+      onTintColor = onTintColor,
+      thumbTintColor = thumbTintColor,
       onStartShouldSetResponder = onStartShouldSetResponder,
       onMoveShouldSetResponder = onMoveShouldSetResponder,
       onStartShouldSetResponderCapture = onStartShouldSetResponderCapture,

@@ -1,4 +1,4 @@
-package com.dbrsn.sjsrn.components
+package com.dbrsn.sjsrn.component
 
 import japgolly.scalajs.react.component.Js.{ RawMounted, UnmountedWithRawType }
 import japgolly.scalajs.react.{ Children, CtorType, JsComponent }

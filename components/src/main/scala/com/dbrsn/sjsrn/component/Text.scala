@@ -1,4 +1,4 @@
-package com.dbrsn.sjsrn.components
+package com.dbrsn.sjsrn.component
 
 import com.dbrsn.sjsrn.{ ReactEvent, SyntheticEvent }
 import japgolly.scalajs.react.component.Js.{ RawMounted, UnmountedWithRawType }

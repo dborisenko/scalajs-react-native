@@ -1,43 +1,31 @@
-package com.dbrsn.sjsrn.components
+package com.dbrsn.sjsrn.component
 
-import com.github.ghik.silencer.silent
 import japgolly.scalajs.react.component.Js.{ RawMounted, UnmountedWithRawType }
 import japgolly.scalajs.react.{ Children, CtorType, JsComponent }
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-object Picker {
-
-  @silent
-  @js.native
-  @JSImport("react-native", "Picker")
-  object RawComponent extends js.Object {
-    val MODE_DIALOG: Mode = js.native
-    val MODE_DROPDOWN: Mode = js.native
-  }
+object ActivityIndicator {
 
   @js.native
-  trait Mode extends js.Object
+  @JSImport("react-native", "ActivityIndicator")
+  object RawComponent extends js.Object
 
   @js.native
-  trait Props[T] extends View.Props {
-    val itemStyle: js.UndefOr[js.Any] = js.undefined
-    val prompt: js.UndefOr[String] = js.undefined
-    val enabled: js.UndefOr[Boolean] = js.undefined
-    val mode: js.UndefOr[Mode] = js.undefined
-    val onValueChange: js.UndefOr[js.Function2[T, Int, _]] = js.undefined
-    val selectedValue: js.UndefOr[T] = js.undefined
+  trait Props extends View.Props {
+    val size: js.UndefOr[ActivityIndicatorSize] = js.undefined
+    val hidesWhenStopped: js.UndefOr[Boolean] = js.undefined
+    val color: js.UndefOr[String] = js.undefined
+    val animating: js.UndefOr[Boolean] = js.undefined
   }
 
   object Props {
-    def apply[T](
-      itemStyle: js.UndefOr[js.Any] = js.undefined,
-      prompt: js.UndefOr[String] = js.undefined,
-      enabled: js.UndefOr[Boolean] = js.undefined,
-      mode: js.UndefOr[Mode] = js.undefined,
-      onValueChange: js.UndefOr[js.Function2[T, Int, _]] = js.undefined,
-      selectedValue: js.UndefOr[T] = js.undefined,
+    def apply(
+      size: js.UndefOr[ActivityIndicatorSize] = js.undefined,
+      hidesWhenStopped: js.UndefOr[Boolean] = js.undefined,
+      color: js.UndefOr[String] = js.undefined,
+      animating: js.UndefOr[Boolean] = js.undefined,
       onStartShouldSetResponder: js.UndefOr[js.Function] = js.undefined,
       onMoveShouldSetResponder: js.UndefOr[js.Function] = js.undefined,
       onStartShouldSetResponderCapture: js.UndefOr[js.Function] = js.undefined,
@@ -67,13 +55,11 @@ object Picker {
       pointerEvents: js.UndefOr[PointerEvents] = js.undefined,
       importantForAccessibility: js.UndefOr[ImportantForAccessibility] = js.undefined,
       accessible: js.UndefOr[Boolean] = js.undefined
-    ): Props[T] = js.Dynamic.literal(
-      itemStyle = itemStyle,
-      prompt = prompt,
-      enabled = enabled,
-      mode = mode,
-      onValueChange = onValueChange,
-      selectedValue = selectedValue.asInstanceOf[js.Any],
+    ): Props = js.Dynamic.literal(
+      size = size,
+      hidesWhenStopped = hidesWhenStopped,
+      color = color,
+      animating = animating,
       onStartShouldSetResponder = onStartShouldSetResponder,
       onMoveShouldSetResponder = onMoveShouldSetResponder,
       onStartShouldSetResponderCapture = onStartShouldSetResponderCapture,
@@ -103,48 +89,11 @@ object Picker {
       pointerEvents = pointerEvents,
       importantForAccessibility = importantForAccessibility,
       accessible = accessible
-    ).asInstanceOf[Props[T]]
+    ).asInstanceOf[Props]
   }
 
-  private def component[T] = JsComponent[Props[T], Children.Varargs, Null](RawComponent)
+  private val component = JsComponent[Props, Children.Varargs, Null](RawComponent)
 
-  def apply[T](props: Props[T])(children: CtorType.ChildArg*): UnmountedWithRawType[Props[T], Null, RawMounted[Props[T], Null]] =
-    component[T](props)(children: _*)
-}
-
-object PickerItem {
-
-  @js.native
-  @JSImport("react-native", "Picker.Item")
-  object RawComponent extends js.Object
-
-  @js.native
-  trait Props[T] extends js.Object {
-    val label: js.UndefOr[String] = js.undefined
-    val color: js.UndefOr[String] = js.undefined
-    val style: js.UndefOr[js.Any] = js.undefined
-    val testID: js.UndefOr[String] = js.undefined
-    val value: js.UndefOr[T] = js.undefined
-  }
-
-  object Props {
-    def apply[T](
-      label: js.UndefOr[String] = js.undefined,
-      color: js.UndefOr[String] = js.undefined,
-      style: js.UndefOr[js.Any] = js.undefined,
-      testID: js.UndefOr[String] = js.undefined,
-      value: js.UndefOr[T] = js.undefined
-    ): Props[T] = js.Dynamic.literal(
-      label = label,
-      color = color,
-      style = style,
-      testID = testID,
-      value = value.asInstanceOf[js.Any]
-    ).asInstanceOf[Props[T]]
-  }
-
-  private def component[T] = JsComponent[Props[T], Children.Varargs, Null](RawComponent)
-
-  def apply[T](props: Props[T])(children: CtorType.ChildArg*): UnmountedWithRawType[Props[T], Null, RawMounted[Props[T], Null]] =
-    component[T](props)(children: _*)
+  def apply(props: Props)(children: CtorType.ChildArg*): UnmountedWithRawType[Props, Null, RawMounted[Props, Null]] =
+    component(props)(children: _*)
 }

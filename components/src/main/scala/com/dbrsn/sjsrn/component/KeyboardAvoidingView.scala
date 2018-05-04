@@ -1,5 +1,6 @@
-package com.dbrsn.sjsrn.components
+package com.dbrsn.sjsrn.component
 
+import com.dbrsn.sjsrn.component.AnimatedImage.RawComponent
 import com.github.ghik.silencer.silent
 import japgolly.scalajs.react.component.Js.{ RawMounted, UnmountedWithRawType }
 import japgolly.scalajs.react.{ Children, CtorType, JsComponent }
@@ -7,48 +8,61 @@ import japgolly.scalajs.react.{ Children, CtorType, JsComponent }
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-object RefreshControl {
+@js.native
+trait ScreenRect extends js.Object {
+  var screenX: js.UndefOr[Double] = js.undefined
+  var screenY: js.UndefOr[Double] = js.undefined
+  var width: js.UndefOr[Double] = js.undefined
+  var height: js.UndefOr[Double] = js.undefined
+}
+
+@js.native
+trait KeyboardChangeEvent extends js.Object {
+  var startCoordinates: js.UndefOr[ScreenRect] = js.undefined
+
+  var endCoordinates: ScreenRect
+
+  var duration: js.UndefOr[Double] = js.undefined
+
+  var easing: js.UndefOr[String] = js.undefined
+}
+
+object KeyboardAvoidingView {
+
+  @js.native
+  trait Behaviour extends js.Object
+
+  object Behaviour {
+    @inline def HEIGHT: Behaviour = "height".asInstanceOf[Behaviour]
+
+    @inline def POSITION: Behaviour = "position".asInstanceOf[Behaviour]
+
+    @inline def PADDING: Behaviour = "padding".asInstanceOf[Behaviour]
+  }
 
   @silent
   @js.native
-  @JSImport("react-native", "RefreshControl")
-  object RawComponent extends js.Object {
-    val SIZE: js.Dynamic = js.native
-  }
+  @JSImport("react-native", "KeyboardAvoidingView")
+  object KeyboardAvoidingViewComponent extends js.Object {
+    def relativeKeyboardHeight(keyboardFrame: ScreenRect): Double = js.native
 
-  @js.native
-  trait Size extends js.Object
+    def onKeyboardChange(event: KeyboardChangeEvent): Unit = js.native
 
-  object Size {
-    @inline def DEFAULT: Size = RawComponent.SIZE.DEFAULT.asInstanceOf[Size]
-
-    @inline def LARGE: Size = RawComponent.SIZE.LARGE.asInstanceOf[Size]
+    def onLayout(event: LayoutEvent): Unit = js.native
   }
 
   @js.native
   trait Props extends View.Props {
-    val onRefresh: js.UndefOr[js.Function0[_]] = js.undefined
-    val refreshing: js.UndefOr[Boolean] = js.undefined
-    val tintColor: js.UndefOr[String] = js.undefined
-    val title: js.UndefOr[String] = js.undefined
-    val enabled: js.UndefOr[Boolean] = js.undefined
-    val colors: js.UndefOr[js.Array[String]] = js.undefined
-    val progressBackgroundColor: js.UndefOr[String] = js.undefined
-    val progressViewOffset: js.UndefOr[Double] = js.undefined
-    val size: js.UndefOr[Size] = js.undefined
+    val behavior: js.UndefOr[Behaviour] = js.undefined
+    val contentContainerStyle: js.UndefOr[js.Any] = js.undefined
+    val keyboardVerticalOffset: js.UndefOr[Double] = js.undefined
   }
 
   object Props {
     def apply(
-      onRefresh: js.UndefOr[js.Function0[_]] = js.undefined,
-      refreshing: js.UndefOr[Boolean] = js.undefined,
-      tintColor: js.UndefOr[String] = js.undefined,
-      title: js.UndefOr[String] = js.undefined,
-      enabled: js.UndefOr[Boolean] = js.undefined,
-      colors: js.UndefOr[js.Array[String]] = js.undefined,
-      progressBackgroundColor: js.UndefOr[String] = js.undefined,
-      progressViewOffset: js.UndefOr[Double] = js.undefined,
-      size: js.UndefOr[Size] = js.undefined,
+      behavior: js.UndefOr[Behaviour] = js.undefined,
+      contentContainerStyle: js.UndefOr[js.Any] = js.undefined,
+      keyboardVerticalOffset: js.UndefOr[Double] = js.undefined,
       onStartShouldSetResponder: js.UndefOr[js.Function] = js.undefined,
       onMoveShouldSetResponder: js.UndefOr[js.Function] = js.undefined,
       onStartShouldSetResponderCapture: js.UndefOr[js.Function] = js.undefined,
@@ -79,15 +93,9 @@ object RefreshControl {
       importantForAccessibility: js.UndefOr[ImportantForAccessibility] = js.undefined,
       accessible: js.UndefOr[Boolean] = js.undefined
     ): Props = js.Dynamic.literal(
-      onRefresh = onRefresh,
-      refreshing = refreshing,
-      tintColor = tintColor,
-      title = title,
-      enabled = enabled,
-      colors = colors,
-      progressBackgroundColor = progressBackgroundColor,
-      progressViewOffset = progressViewOffset,
-      size = size,
+      behavior = behavior,
+      contentContainerStyle = contentContainerStyle,
+      keyboardVerticalOffset = keyboardVerticalOffset,
       onStartShouldSetResponder = onStartShouldSetResponder,
       onMoveShouldSetResponder = onMoveShouldSetResponder,
       onStartShouldSetResponderCapture = onStartShouldSetResponderCapture,

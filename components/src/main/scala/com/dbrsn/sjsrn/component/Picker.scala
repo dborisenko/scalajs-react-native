@@ -1,35 +1,43 @@
-package com.dbrsn.sjsrn.components
+package com.dbrsn.sjsrn.component
 
+import com.github.ghik.silencer.silent
 import japgolly.scalajs.react.component.Js.{ RawMounted, UnmountedWithRawType }
 import japgolly.scalajs.react.{ Children, CtorType, JsComponent }
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-object Switch {
+object Picker {
+
+  @silent
+  @js.native
+  @JSImport("react-native", "Picker")
+  object RawComponent extends js.Object {
+    val MODE_DIALOG: Mode = js.native
+    val MODE_DROPDOWN: Mode = js.native
+  }
 
   @js.native
-  @JSImport("react-native", "Switch")
-  object RawComponent extends js.Object
+  trait Mode extends js.Object
 
   @js.native
-  trait Props extends View.Props {
-    val value: js.UndefOr[Boolean] = js.undefined
-    val disabled: js.UndefOr[Boolean] = js.undefined
-    val onValueChange: js.UndefOr[js.Function1[Boolean, _]] = js.undefined
-    val tintColor: js.UndefOr[String] = js.undefined
-    val onTintColor: js.UndefOr[String] = js.undefined
-    val thumbTintColor: js.UndefOr[String] = js.undefined
+  trait Props[T] extends View.Props {
+    val itemStyle: js.UndefOr[js.Any] = js.undefined
+    val prompt: js.UndefOr[String] = js.undefined
+    val enabled: js.UndefOr[Boolean] = js.undefined
+    val mode: js.UndefOr[Mode] = js.undefined
+    val onValueChange: js.UndefOr[js.Function2[T, Int, _]] = js.undefined
+    val selectedValue: js.UndefOr[T] = js.undefined
   }
 
   object Props {
-    def apply(
-      value: js.UndefOr[Boolean] = js.undefined,
-      disabled: js.UndefOr[Boolean] = js.undefined,
-      onValueChange: js.UndefOr[js.Function1[Boolean, _]] = js.undefined,
-      tintColor: js.UndefOr[String] = js.undefined,
-      onTintColor: js.UndefOr[String] = js.undefined,
-      thumbTintColor: js.UndefOr[String] = js.undefined,
+    def apply[T](
+      itemStyle: js.UndefOr[js.Any] = js.undefined,
+      prompt: js.UndefOr[String] = js.undefined,
+      enabled: js.UndefOr[Boolean] = js.undefined,
+      mode: js.UndefOr[Mode] = js.undefined,
+      onValueChange: js.UndefOr[js.Function2[T, Int, _]] = js.undefined,
+      selectedValue: js.UndefOr[T] = js.undefined,
       onStartShouldSetResponder: js.UndefOr[js.Function] = js.undefined,
       onMoveShouldSetResponder: js.UndefOr[js.Function] = js.undefined,
       onStartShouldSetResponderCapture: js.UndefOr[js.Function] = js.undefined,
@@ -59,13 +67,13 @@ object Switch {
       pointerEvents: js.UndefOr[PointerEvents] = js.undefined,
       importantForAccessibility: js.UndefOr[ImportantForAccessibility] = js.undefined,
       accessible: js.UndefOr[Boolean] = js.undefined
-    ): Props = js.Dynamic.literal(
-      value = value,
-      disabled = disabled,
+    ): Props[T] = js.Dynamic.literal(
+      itemStyle = itemStyle,
+      prompt = prompt,
+      enabled = enabled,
+      mode = mode,
       onValueChange = onValueChange,
-      tintColor = tintColor,
-      onTintColor = onTintColor,
-      thumbTintColor = thumbTintColor,
+      selectedValue = selectedValue.asInstanceOf[js.Any],
       onStartShouldSetResponder = onStartShouldSetResponder,
       onMoveShouldSetResponder = onMoveShouldSetResponder,
       onStartShouldSetResponderCapture = onStartShouldSetResponderCapture,
@@ -95,11 +103,48 @@ object Switch {
       pointerEvents = pointerEvents,
       importantForAccessibility = importantForAccessibility,
       accessible = accessible
-    ).asInstanceOf[Props]
+    ).asInstanceOf[Props[T]]
   }
 
-  private val component = JsComponent[Props, Children.Varargs, Null](RawComponent)
+  private def component[T] = JsComponent[Props[T], Children.Varargs, Null](RawComponent)
 
-  def apply(props: Props)(children: CtorType.ChildArg*): UnmountedWithRawType[Props, Null, RawMounted[Props, Null]] =
-    component(props)(children: _*)
+  def apply[T](props: Props[T])(children: CtorType.ChildArg*): UnmountedWithRawType[Props[T], Null, RawMounted[Props[T], Null]] =
+    component[T](props)(children: _*)
+}
+
+object PickerItem {
+
+  @js.native
+  @JSImport("react-native", "Picker.Item")
+  object RawComponent extends js.Object
+
+  @js.native
+  trait Props[T] extends js.Object {
+    val label: js.UndefOr[String] = js.undefined
+    val color: js.UndefOr[String] = js.undefined
+    val style: js.UndefOr[js.Any] = js.undefined
+    val testID: js.UndefOr[String] = js.undefined
+    val value: js.UndefOr[T] = js.undefined
+  }
+
+  object Props {
+    def apply[T](
+      label: js.UndefOr[String] = js.undefined,
+      color: js.UndefOr[String] = js.undefined,
+      style: js.UndefOr[js.Any] = js.undefined,
+      testID: js.UndefOr[String] = js.undefined,
+      value: js.UndefOr[T] = js.undefined
+    ): Props[T] = js.Dynamic.literal(
+      label = label,
+      color = color,
+      style = style,
+      testID = testID,
+      value = value.asInstanceOf[js.Any]
+    ).asInstanceOf[Props[T]]
+  }
+
+  private def component[T] = JsComponent[Props[T], Children.Varargs, Null](RawComponent)
+
+  def apply[T](props: Props[T])(children: CtorType.ChildArg*): UnmountedWithRawType[Props[T], Null, RawMounted[Props[T], Null]] =
+    component[T](props)(children: _*)
 }

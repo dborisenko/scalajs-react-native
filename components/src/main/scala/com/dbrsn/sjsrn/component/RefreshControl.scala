@@ -1,31 +1,54 @@
-package com.dbrsn.sjsrn.components
+package com.dbrsn.sjsrn.component
 
+import com.github.ghik.silencer.silent
 import japgolly.scalajs.react.component.Js.{ RawMounted, UnmountedWithRawType }
 import japgolly.scalajs.react.{ Children, CtorType, JsComponent }
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-object ActivityIndicator {
+object RefreshControl {
+
+  @silent
+  @js.native
+  @JSImport("react-native", "RefreshControl")
+  object RawComponent extends js.Object {
+    val SIZE: js.Dynamic = js.native
+  }
 
   @js.native
-  @JSImport("react-native", "ActivityIndicator")
-  object RawComponent extends js.Object
+  trait Size extends js.Object
+
+  object Size {
+    @inline def DEFAULT: Size = RawComponent.SIZE.DEFAULT.asInstanceOf[Size]
+
+    @inline def LARGE: Size = RawComponent.SIZE.LARGE.asInstanceOf[Size]
+  }
 
   @js.native
   trait Props extends View.Props {
-    val size: js.UndefOr[ActivityIndicatorSize] = js.undefined
-    val hidesWhenStopped: js.UndefOr[Boolean] = js.undefined
-    val color: js.UndefOr[String] = js.undefined
-    val animating: js.UndefOr[Boolean] = js.undefined
+    val onRefresh: js.UndefOr[js.Function0[_]] = js.undefined
+    val refreshing: js.UndefOr[Boolean] = js.undefined
+    val tintColor: js.UndefOr[String] = js.undefined
+    val title: js.UndefOr[String] = js.undefined
+    val enabled: js.UndefOr[Boolean] = js.undefined
+    val colors: js.UndefOr[js.Array[String]] = js.undefined
+    val progressBackgroundColor: js.UndefOr[String] = js.undefined
+    val progressViewOffset: js.UndefOr[Double] = js.undefined
+    val size: js.UndefOr[Size] = js.undefined
   }
 
   object Props {
     def apply(
-      size: js.UndefOr[ActivityIndicatorSize] = js.undefined,
-      hidesWhenStopped: js.UndefOr[Boolean] = js.undefined,
-      color: js.UndefOr[String] = js.undefined,
-      animating: js.UndefOr[Boolean] = js.undefined,
+      onRefresh: js.UndefOr[js.Function0[_]] = js.undefined,
+      refreshing: js.UndefOr[Boolean] = js.undefined,
+      tintColor: js.UndefOr[String] = js.undefined,
+      title: js.UndefOr[String] = js.undefined,
+      enabled: js.UndefOr[Boolean] = js.undefined,
+      colors: js.UndefOr[js.Array[String]] = js.undefined,
+      progressBackgroundColor: js.UndefOr[String] = js.undefined,
+      progressViewOffset: js.UndefOr[Double] = js.undefined,
+      size: js.UndefOr[Size] = js.undefined,
       onStartShouldSetResponder: js.UndefOr[js.Function] = js.undefined,
       onMoveShouldSetResponder: js.UndefOr[js.Function] = js.undefined,
       onStartShouldSetResponderCapture: js.UndefOr[js.Function] = js.undefined,
@@ -56,10 +79,15 @@ object ActivityIndicator {
       importantForAccessibility: js.UndefOr[ImportantForAccessibility] = js.undefined,
       accessible: js.UndefOr[Boolean] = js.undefined
     ): Props = js.Dynamic.literal(
+      onRefresh = onRefresh,
+      refreshing = refreshing,
+      tintColor = tintColor,
+      title = title,
+      enabled = enabled,
+      colors = colors,
+      progressBackgroundColor = progressBackgroundColor,
+      progressViewOffset = progressViewOffset,
       size = size,
-      hidesWhenStopped = hidesWhenStopped,
-      color = color,
-      animating = animating,
       onStartShouldSetResponder = onStartShouldSetResponder,
       onMoveShouldSetResponder = onMoveShouldSetResponder,
       onStartShouldSetResponderCapture = onStartShouldSetResponderCapture,

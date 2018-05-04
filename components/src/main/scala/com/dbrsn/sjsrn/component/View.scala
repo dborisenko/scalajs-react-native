@@ -1,6 +1,6 @@
-package com.dbrsn.sjsrn.components
+package com.dbrsn.sjsrn.component
 
-import com.dbrsn.sjsrn.components.ImageBackground.RawComponent
+import com.dbrsn.sjsrn.component.ImageBackground.RawComponent
 import japgolly.scalajs.react.component.Js.{ RawMounted, UnmountedWithRawType }
 import japgolly.scalajs.react.{ Children, CtorType, JsComponent }
 

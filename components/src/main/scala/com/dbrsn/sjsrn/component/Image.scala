@@ -1,4 +1,4 @@
-package com.dbrsn.sjsrn.components
+package com.dbrsn.sjsrn.component
 
 import com.dbrsn.sjsrn.{ ImageEvent, ReactEvent }
 import com.github.ghik.silencer.silent
