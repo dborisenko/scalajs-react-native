@@ -19,5 +19,4 @@ object AnimatedView {
 
   def apply(props: Props)(children: CtorType.ChildArg*): UnmountedWithRawType[Props, Null, RawMounted[Props, Null]] =
     component(props)(children: _*)
-
 }
