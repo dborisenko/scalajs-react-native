@@ -34,6 +34,7 @@ object Modal {
   }
 
   object Props {
+    @inline
     def apply(
       visible: js.UndefOr[Boolean] = js.undefined,
       style: js.UndefOr[js.Any] = js.undefined,

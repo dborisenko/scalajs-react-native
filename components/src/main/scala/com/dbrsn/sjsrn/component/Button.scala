@@ -23,6 +23,7 @@ object Button {
   }
 
   object Props {
+    @inline
     def apply(
       title: js.UndefOr[String] = js.undefined,
       disabled: js.UndefOr[Boolean] = js.undefined,

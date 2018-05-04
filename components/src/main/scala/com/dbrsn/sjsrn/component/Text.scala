@@ -41,6 +41,7 @@ object Text {
   }
 
   object Props {
+    @inline
     def apply(
       suppressHighlighting: js.UndefOr[Boolean] = js.undefined,
       selectionColor: js.UndefOr[String] = js.undefined,

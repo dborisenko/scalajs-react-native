@@ -31,6 +31,7 @@ object Picker {
   }
 
   object Props {
+    @inline
     def apply[T](
       itemStyle: js.UndefOr[js.Any] = js.undefined,
       prompt: js.UndefOr[String] = js.undefined,
@@ -128,6 +129,7 @@ object PickerItem {
   }
 
   object Props {
+    @inline
     def apply[T](
       label: js.UndefOr[String] = js.undefined,
       color: js.UndefOr[String] = js.undefined,

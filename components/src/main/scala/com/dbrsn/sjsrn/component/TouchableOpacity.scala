@@ -22,6 +22,7 @@ object TouchableOpacity {
   }
 
   object Props {
+    @inline
     def apply(
       activeOpacity: js.UndefOr[Double] = js.undefined,
       onPressIn: js.UndefOr[js.Function0[_]] = js.undefined,

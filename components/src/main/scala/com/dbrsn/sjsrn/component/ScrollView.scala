@@ -69,7 +69,6 @@ trait ScrollPosition extends js.Object {
 @silent
 @js.native
 trait ScrollEvent extends js.Object {
-
   val contentInset: ContentInset = js.native
 
   val contentOffset: ContentOffset = js.native
@@ -84,7 +83,6 @@ trait ScrollEvent extends js.Object {
 @silent
 @js.native
 trait ContentInset extends js.Object {
-
   val top: Double = js.native
 
   val left: Double = js.native
@@ -175,6 +173,7 @@ object ScrollView {
   }
 
   object Props {
+    @inline
     def apply(
       zoomScale: js.UndefOr[Int] = js.undefined,
       contentContainerStyle: js.UndefOr[js.Any] = js.undefined,

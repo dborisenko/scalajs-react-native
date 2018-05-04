@@ -39,6 +39,7 @@ object Image {
   }
 
   object Props {
+    @inline
     def apply(
       source: js.UndefOr[Source] = js.undefined,
       onLayout: js.UndefOr[LayoutEvent => js.Any] = js.undefined,
@@ -83,6 +84,7 @@ object Image {
   }
 
   object Source {
+    @inline
     def apply(
       uri: String,
       isStatic: js.UndefOr[Boolean] = js.undefined,

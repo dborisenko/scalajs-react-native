@@ -176,6 +176,7 @@ object TextInput {
   }
 
   object Props {
+    @inline
     def apply(
       onBlur: js.UndefOr[js.Function1[ReactEvent[TextInputEvent], Unit]] = js.undefined,
       placeholderTextColor: js.UndefOr[String] = js.undefined,

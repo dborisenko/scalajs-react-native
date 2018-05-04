@@ -59,6 +59,7 @@ object KeyboardAvoidingView {
   }
 
   object Props {
+    @inline
     def apply(
       behavior: js.UndefOr[Behaviour] = js.undefined,
       contentContainerStyle: js.UndefOr[js.Any] = js.undefined,

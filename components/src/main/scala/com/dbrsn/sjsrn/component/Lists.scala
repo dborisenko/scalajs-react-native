@@ -136,6 +136,7 @@ object VirtualizedList {
   }
 
   object Props {
+    @inline
     def apply[D, I](
       ListFooterComponent: UndefOr[js.Function0[React.Element]] = js.undefined,
       ListHeaderComponent: UndefOr[js.Function0[React.Element]] = js.undefined,
@@ -221,6 +222,7 @@ object FlatList {
   type Props[I] = VirtualizedList.Props[js.Array[I], I]
 
   object Props {
+    @inline
     def apply[I](
       ListFooterComponent: UndefOr[js.Function0[React.Element]] = js.undefined,
       ListHeaderComponent: UndefOr[js.Function0[React.Element]] = js.undefined,
@@ -306,6 +308,7 @@ object SectionList {
   type Props[I] = VirtualizedSectionList.Props[js.Array[I], I]
 
   object Props {
+    @inline
     def apply[I](
       sections: UndefOr[js.Array[SectionBase[I]]] = js.undefined,
       enableVirtualization: UndefOr[Boolean] = js.undefined,
@@ -406,6 +409,7 @@ object VirtualizedSectionList {
   }
 
   object Props {
+    @inline
     def apply[D, I](
       sections: UndefOr[js.Array[SectionBase[I]]] = js.undefined,
       enableVirtualization: UndefOr[Boolean] = js.undefined,

@@ -31,6 +31,7 @@ object TouchableWithoutFeedback {
   }
 
   object Props {
+    @inline
     def apply(
       onPressIn: js.UndefOr[js.Function0[_]] = js.undefined,
       onPress: js.UndefOr[js.Function0[_]] = js.undefined,

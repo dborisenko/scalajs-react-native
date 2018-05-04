@@ -53,6 +53,7 @@ object ListView {
   }
 
   object Props {
+    @inline
     def apply[R, H](
       scrollRenderAheadDistance: js.UndefOr[Int] = js.undefined,
       renderFooter: js.UndefOr[js.Function0[React.Element]] = js.undefined,

@@ -30,6 +30,7 @@ object Slider {
   }
 
   object Props {
+    @inline
     def apply(
       minimumTrackTintColor: js.UndefOr[String] = js.undefined,
       minimumValue: js.UndefOr[Double] = js.undefined,

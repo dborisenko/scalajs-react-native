@@ -21,6 +21,7 @@ object ActivityIndicator {
   }
 
   object Props {
+    @inline
     def apply(
       size: js.UndefOr[ActivityIndicatorSize] = js.undefined,
       hidesWhenStopped: js.UndefOr[Boolean] = js.undefined,

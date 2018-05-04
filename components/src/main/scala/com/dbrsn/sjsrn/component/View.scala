@@ -47,6 +47,7 @@ object View {
   }
 
   object Props {
+    @inline
     def apply(
       onStartShouldSetResponder: js.UndefOr[js.Function] = js.undefined,
       onMoveShouldSetResponder: js.UndefOr[js.Function] = js.undefined,

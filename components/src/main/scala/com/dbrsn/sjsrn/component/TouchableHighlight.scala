@@ -21,6 +21,7 @@ object TouchableHighlight {
   }
 
   object Props {
+    @inline
     def apply(
       activeOpacity: js.UndefOr[Double] = js.undefined,
       onHideUnderlay: js.UndefOr[js.Function0[_]] = js.undefined,

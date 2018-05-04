@@ -39,6 +39,7 @@ object RefreshControl {
   }
 
   object Props {
+    @inline
     def apply(
       onRefresh: js.UndefOr[js.Function0[_]] = js.undefined,
       refreshing: js.UndefOr[Boolean] = js.undefined,

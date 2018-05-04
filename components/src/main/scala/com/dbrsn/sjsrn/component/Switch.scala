@@ -23,6 +23,7 @@ object Switch {
   }
 
   object Props {
+    @inline
     def apply(
       value: js.UndefOr[Boolean] = js.undefined,
       disabled: js.UndefOr[Boolean] = js.undefined,
